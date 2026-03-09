@@ -1,0 +1,1901 @@
+/* Página Crear CV: layout a dos columnas */
+
+.cv-builder {
+  display: grid;
+  /* Formulario un poco más chico, vista previa un poco más grande */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 1.5rem;
+}
+
+.cv-column {
+  padding: 1.25rem;
+}
+
+.cv-column h2 {
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.cv-column p {
+  margin-top: 0;
+  color: #6b7280;
+}
+
+
+.cv-preview-wrapper {
+  background: #e5e7eb;
+  padding: 1rem;
+  border-radius: 0.75rem;
+}
+
+
+.cv-preview-paper {
+  background: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  height: 100%;
+  min-height: 500px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+}
+
+
+.cv-preview-paper-ats {
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.cv-preview-paper-balanced {
+  border-left: 4px solid var(--joblu-primary);
+  padding-left: 1.25rem;
+}
+
+.cv-preview-paper-visual {
+  border: none;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  border-radius: 1rem;
+  background: radial-gradient(circle at top left, #dbeafe 0, #ffffff 40%);
+}
+
+/* ==============================================
+   🎨 CLASES DE PLANTILLA (template-*)
+   Modifican solo el look del papel de vista previa.
+   Los datos del formulario no se ven afectados.
+   ============================================== */
+
+/* Plantilla 1 – Profesional (ATS Classic): estructura corporativa con acento lateral */
+.template-ats-classic {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  border-left: 5px solid #1e293b;
+  padding-left: 1.25rem !important;
+}
+
+.template-ats-classic .cv-preview-header h1 {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #1e293b;
+  border-bottom: 2px solid #1e293b;
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.template-ats-classic .cv-preview-header .cv-preview-job-title {
+  color: #475569;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.template-ats-classic .cv-preview-section h4 {
+  color: #1e40af;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: 1.5px solid #1e40af;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.45rem;
+}
+
+.template-ats-classic .cv-preview-divider {
+  border-top: 1px solid #cbd5e1;
+  margin: 0.85rem 0;
+}
+
+/* Plantilla 2 – Moderna (Modern Visual) */
+.template-modern-visual .cv-preview-header {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  margin: -1.5rem -1.5rem 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.template-modern-visual .cv-preview-header h1 {
+  color: #ffffff;
+}
+
+.template-modern-visual .cv-preview-header .cv-preview-job-title {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.template-modern-visual .cv-preview-header .cv-photo-placeholder,
+.template-modern-visual .cv-preview-header .cv-photo-preview {
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+.template-modern-visual .cv-preview-section h4 {
+  color: var(--joblu-primary-accent);
+  border-bottom: 1px solid rgba(33, 219, 210, 0.25);
+  padding-bottom: 0.2rem;
+}
+
+.template-modern-visual .cv-preview-divider {
+  border-color: var(--joblu-primary-accent);
+  opacity: 0.35;
+}
+
+/* Plantilla 3 – Minimalista (Minimal Pro): editorial, centrado, mucho blanco */
+.template-minimal-pro {
+  font-size: 0.88rem;
+  letter-spacing: 0.01em;
+  padding: 2rem 2rem !important;
+}
+
+.template-minimal-pro .cv-preview-header {
+  text-align: left;
+  padding-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.template-minimal-pro .cv-preview-header h1 {
+  font-size: 1.85rem;
+  letter-spacing: -0.03em;
+  font-weight: 300;
+  font-family: var(--font-title);
+  color: #334155;
+}
+
+.template-minimal-pro .cv-preview-header .cv-preview-job-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: #94a3b8;
+  font-weight: 400;
+  margin-top: 0.15rem;
+}
+
+.template-minimal-pro .cv-preview-contact {
+  justify-content: flex-start;
+  color: #94a3b8;
+  font-size: 0.8rem;
+}
+
+.template-minimal-pro .cv-preview-divider {
+  border-top: none;
+  margin: 1.1rem 0;
+  width: 40px;
+  height: 1px;
+  background: #cbd5e1;
+}
+
+.template-minimal-pro .cv-preview-section h4 {
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #94a3b8;
+  margin-bottom: 0.35rem;
+  font-weight: 500;
+  text-align: left;
+}
+
+.template-minimal-pro .cv-preview-paragraph,
+.template-minimal-pro .cv-preview-paragraph-preline {
+  text-align: left;
+}
+
+.template-minimal-pro .cv-photo-placeholder,
+.template-minimal-pro .cv-photo-preview {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* ====================================================
+   🎨 MODAL SELECTOR DE PLANTILLAS
+   ==================================================== */
+
+/* Header con botón de plantilla en columna preview */
+.cv-preview-column-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.cv-preview-column-header h2 {
+  margin: 0;
+}
+
+.cv-template-trigger-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 1.5px solid var(--joblu-primary-accent);
+  background: rgba(33, 219, 210, 0.07);
+  color: var(--joblu-primary-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: var(--font-subtitle);
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cv-template-trigger-btn:hover {
+  background: rgba(33, 219, 210, 0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(33, 219, 210, 0.25);
+}
+
+/* Overlay del modal */
+.template-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: tmFadeIn 0.18s ease;
+}
+
+@keyframes tmFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Caja del modal */
+.template-modal {
+  background: var(--joblu-surface, #ffffff);
+  border-radius: var(--joblu-radius-lg);
+  box-shadow: 0 24px 60px rgba(15, 23, 42, 0.25);
+  width: min(680px, 100%);
+  max-height: 85vh;
+  overflow-y: auto;
+  animation: tmSlideUp 0.22s cubic-bezier(0.34, 1.56, 0.64, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes tmSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.template-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem 1rem;
+  border-bottom: 1px solid var(--joblu-border-soft);
+}
+
+.template-modal-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.template-modal-header p {
+  margin: 0.15rem 0 0;
+  font-size: 0.82rem;
+  color: var(--joblu-text-muted);
+}
+
+.template-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--joblu-text-muted);
+  cursor: pointer;
+  padding: 0.35rem;
+  border-radius: 8px;
+  transition: color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+
+.template-modal-close:hover {
+  color: var(--joblu-text-main);
+  background: var(--joblu-border-soft);
+}
+
+/* Grid de cards de plantilla */
+.template-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+/* Card individual de plantilla */
+.template-card {
+  position: relative;
+  padding: 1.25rem 1rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 2px solid var(--joblu-border-soft);
+  background: var(--joblu-surface);
+  box-shadow: var(--joblu-shadow-sm);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.template-card:hover {
+  border-color: var(--joblu-primary);
+  box-shadow: var(--joblu-shadow-md);
+  transform: translateY(-3px);
+}
+
+/* Estado activo — borde turquesa */
+.template-card.active {
+  border-color: var(--joblu-primary-accent);
+  box-shadow: 0 0 0 3px rgba(33, 219, 210, 0.2), var(--joblu-shadow-md);
+}
+
+/* Estado bloqueado (plantillas premium no adquiridas) */
+.template-card.locked {
+  cursor: not-allowed;
+  opacity: 0.85;
+  background: #f8fafc;
+}
+
+.template-card.locked:hover {
+  border-color: var(--joblu-border-soft);
+  box-shadow: var(--joblu-shadow-sm);
+  transform: none;
+  /* Evitar la animación de hover */
+}
+
+.template-card-lock {
+  margin-top: auto;
+  /* Empuja el candado al fondo de la card */
+  padding-top: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--joblu-primary);
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+
+.template-card-thumbnail {
+  font-size: 2.2rem;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+}
+
+.template-card-name {
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+  font-size: 0.95rem;
+  color: var(--joblu-text-main);
+}
+
+.template-card-category {
+  font-size: 0.75rem;
+  color: var(--joblu-text-muted);
+}
+
+.template-card-description {
+  font-size: 0.78rem;
+  color: var(--joblu-text-muted);
+  line-height: 1.4;
+}
+
+.template-card-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
+  margin-top: 0.25rem;
+}
+
+.template-feature-tag {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(99, 55, 183, 0.08);
+  color: var(--joblu-primary);
+  font-weight: 600;
+}
+
+/* Badge "Actual ✓" */
+.template-badge-active {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: var(--joblu-primary-accent);
+  color: #0f172a;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  letter-spacing: 0.04em;
+  font-family: var(--font-subtitle);
+}
+
+/* Dot de color de acento de cada plantilla */
+.template-card-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 0.15rem;
+}
+
+
+/* Header de la vista previa con posible foto */
+.cv-preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cv-photo-placeholder {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  border: 2px dashed #d1d5db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #9ca3af;
+}
+
+.cv-form-photo {
+  margin-top: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cv-form-photo input[type="file"] {
+  margin-top: 0.35rem;
+  font-size: 0.8rem;
+}
+
+.cv-photo-remove-btn {
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #fef2f2;
+  color: #b91c1c;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.cv-photo-remove-btn:hover {
+  background: #fee2e2;
+}
+
+
+.cv-photo-preview {
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid #e5e7eb;
+}
+
+/* ========== Formularios CV ========== */
+
+/* Contenedor del formulario por pasos: altura fija para que las flechas no se muevan */
+.cv-form-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 360px;
+}
+
+/* Cada slide del formulario ocupa todo el espacio disponible */
+.cv-form-slide {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.cv-form label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--joblu-text-main);
+}
+
+.cv-form input,
+.cv-form textarea {
+  margin-top: 0.35rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  background: #f9fafb;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Limitar crecimiento de los textarea del CV */
+.cv-form textarea {
+  max-height: 220px;
+  min-height: 90px;
+  overflow-y: auto;
+  resize: vertical;
+}
+
+/* Fix para DatePickers que se cortan: Permitir overflow visible en slides y contenedores */
+.cv-form {
+  overflow: visible !important;
+}
+
+.cv-form-slide {
+  overflow: visible !important;
+}
+
+/* Contenedor del formulario global (columna izquierda) */
+.cv-builder-form-panel {
+  overflow-x: hidden;
+  overflow-y: auto;
+  position: relative;
+  z-index: 10;
+}
+
+
+.cv-form input:focus,
+.cv-form textarea:focus {
+  outline: none;
+  border-color: var(--joblu-primary);
+  box-shadow: 0 0 0 2px rgba(99, 55, 183, 0.2);
+}
+
+/* Título de bloque (Datos personales, Experiencia, etc.) */
+.cv-form-sectionTitle {
+  margin: 0;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--joblu-primary);
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+}
+
+/* Header de sección (título + botón) */
+.cv-form-sectionHeader {
+  margin-top: 1.5rem;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+/* Botón + / − para mostrar/ocultar en el CV */
+.cv-section-toggle {
+  font-size: 0.75rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  cursor: pointer;
+  color: #4b5563;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.cv-section-toggle:hover {
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+
+/* Toggles de visibilidad con icono ojo */
+.cv-visibility-btn {
+  background: transparent;
+  border: none;
+  color: var(--joblu-primary);
+  opacity: 0.8;
+  cursor: pointer;
+  padding: 0.2rem 0.5rem;
+  font-size: 1.1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-visibility-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.cv-visibility-btn--hidden {
+  color: #9ca3af;
+  opacity: 0.6;
+}
+
+.cv-visibility-btn--hidden:hover {
+  color: #6b7280;
+}
+
+/* Estilos para el botón de visibilidad dentro de los labels de inputs (inline) */
+.cv-form-label-with-visibility {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.cv-visibility-btn-inline {
+  background: transparent;
+  border: none;
+  color: #6b7280;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  margin-left: 0.5rem;
+}
+
+.cv-visibility-btn-inline:hover {
+  color: var(--joblu-primary);
+  transform: scale(1.1);
+}
+
+.cv-visibility-btn-inline.cv-visibility-btn--hidden {
+  color: #d1d5db;
+}
+
+.cv-visibility-btn-inline.cv-visibility-btn--hidden:hover {
+  color: #9ca3af;
+}
+
+/* Filas con inputs en columnas */
+.cv-form-group-inline {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+/* ===== TARJETAS DE EXPERIENCIA ====== */
+
+.cv-experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-experience-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+  transition: box-shadow 0.2s, border-color 0.2s;
+  overflow: visible;
+  /* Fix DatePicker */
+}
+
+.cv-experience-card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  border-color: #d1d5db;
+}
+
+.cv-experience-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.25rem;
+  user-select: none;
+  border-radius: 12px;
+  transition: background-color 0.2s;
+}
+
+.cv-experience-card-header:hover {
+  background-color: #f9fafb;
+}
+
+.cv-experience-card.is-open .cv-experience-card-header {
+  border-bottom: 1px solid #f3f4f6;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.cv-experience-card.is-closed .cv-experience-card-header {
+  border-bottom: none;
+}
+
+.cv-experience-card-body {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  animation: accordionSlideDown 0.2s ease-out forwards;
+}
+
+@keyframes accordionSlideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cv-exp-accordion-icon {
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  transition: transform 0.2s;
+}
+
+.cv-experience-card-header h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--joblu-primary);
+  font-family: var(--font-subtitle);
+  font-weight: 700;
+}
+
+/* ===== TARJETAS DE CHIPS (Skills / Idiomas) ====== */
+
+.cv-chip-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.cv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: #374151;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.cv-chip:hover {
+  background-color: #e5e7eb;
+}
+
+.cv-chip button {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: color 0.2s;
+}
+
+.cv-chip button:hover {
+  color: #ef4444;
+}
+
+.cv-chip-input-wrapper {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cv-chip-input {
+  width: 100%;
+}
+
+.cv-chip-hint {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 0.35rem;
+}
+
+.cv-exp-remove-btn {
+  background: transparent;
+  color: #ef4444;
+  border: 1px solid transparent;
+  font-size: 0.8rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.cv-exp-remove-btn:hover {
+  background: #ef4444;
+  color: #ffffff;
+}
+
+.cv-exp-checkbox {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  font-size: 0.85rem !important;
+  color: #4b5563 !important;
+  cursor: pointer;
+  margin-top: -0.25rem;
+}
+
+.cv-exp-checkbox input[type="checkbox"] {
+  margin: 0 !important;
+  width: 16px;
+  height: 16px;
+  accent-color: var(--joblu-primary);
+  cursor: pointer;
+}
+
+.cv-exp-add-btn {
+  margin-top: 0.5rem;
+  background: transparent;
+  color: var(--joblu-primary);
+  border: 2px dashed var(--joblu-primary);
+  opacity: 0.7;
+  padding: 0.75rem;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.cv-exp-add-btn:hover {
+  opacity: 1;
+  background: rgba(99, 55, 183, 0.05);
+  border-style: solid;
+}
+
+/* Fila de fechas responsiva */
+.cv-form-dates-row {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.cv-form-date-input {
+  flex: 1;
+  min-width: 0;
+  /* Previene overflow en flex items */
+}
+
+/* =========================================
+   📱 RESPONSIVE - CV BUILDER MOBILE
+   ========================================= */
+
+@media (max-width: 768px) {
+
+  /* Evitar overflow horizontal global en mobile */
+  .cv-form-group-inline {
+    grid-template-columns: 1fr;
+    /* Forzar 1 columna en mobile */
+    gap: 0.75rem;
+  }
+
+  .cv-form-dates-row {
+    flex-direction: column;
+    /* Apilar fechas en mobile */
+    gap: 0.75rem;
+  }
+
+  .cv-experience-card-body {
+    padding: 1rem;
+    /* Menos padding interior en mobile */
+  }
+
+  .cv-experience-card-header {
+    padding: 0.85rem 1rem;
+  }
+}
+
+/* ===== FIX DEFINITIVO BOTONES CV (al final del CSS) ===== */
+
+.cv-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.cv-form-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e5e7eb;
+}
+
+
+/* Base común */
+.cv-action-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 44px;
+  padding: 0 1.25rem;
+  line-height: 1;
+
+  border-radius: 12px;
+  border: 1px solid transparent;
+  background: transparent;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+
+  flex: 0 0 auto;
+  /* 🔑 permite que el gap se vea */
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+/* ── Contenedor secundario: Guardar + Descargar lado a lado ── */
+.cv-actions-secondary {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cv-actions-secondary .save-btn,
+.cv-actions-secondary .download-btn,
+.cv-actions .import-btn {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  border: 2px solid var(--joblu-primary);
+  flex: 1;
+  text-align: center;
+  margin-top: 0;
+  min-width: 120px;
+}
+
+.cv-actions-secondary .save-btn:hover,
+.cv-actions-secondary .download-btn:hover,
+.cv-actions .import-btn:hover {
+  background: transparent;
+  color: var(--joblu-primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 55, 183, 0.25);
+}
+
+/* ── Botón Protagonista: Mejorar con IA — ocupa todo el ancho ── */
+.cv-actions .ai-btn {
+  background: var(--joblu-primary-accent, #21dbd2);
+  color: #0f172a;
+  border: none;
+  width: 100%;
+  text-align: center;
+  margin-top: 0;
+  padding: 0 2rem;
+  height: 48px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+  box-shadow: 0 4px 14px rgba(33, 219, 210, 0.35);
+  letter-spacing: 0.3px;
+}
+
+.cv-actions .ai-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 8px 22px rgba(33, 219, 210, 0.45);
+}
+
+.cv-actions .ai-btn:active {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 8px rgba(33, 219, 210, 0.25);
+}
+
+/* ── Flechas de Navegación (estilo carrusel) ── */
+.cv-nav-arrow {
+  width: 64px;
+  height: 40px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid var(--joblu-border-soft);
+  color: var(--joblu-primary);
+  box-shadow: var(--joblu-shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cv-nav-arrow:hover:not(:disabled) {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(99, 55, 183, 0.3);
+  transform: scale(1.05);
+}
+
+.cv-nav-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.cv-actions .save-btn:disabled,
+.cv-actions .download-btn:disabled,
+.cv-actions .ai-btn:disabled,
+.cv-actions .import-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+
+
+
+/* Tip con resumen de preferencias */
+.cv-settings-tip {
+  margin: 0.75rem 0 1rem 0;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  background: #e7fdfb;
+  color: var(--joblu-primary);
+  border: 1px solid var(--joblu-primary-accent);
+}
+
+/* Panel de IA (overlay lateral) */
+.cv-ai-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  z-index: 40;
+}
+
+.cv-ai-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(380px, 100%);
+  height: 100%;
+  background: #ffffff;
+  border-left: 1px solid var(--joblu-border-soft);
+  box-shadow: -10px 0 30px rgba(15, 23, 42, 0.25);
+  padding: 1.25rem 1.5rem;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  overflow-y: auto;
+}
+
+
+.cv-ai-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cv-ai-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.cv-ai-close {
+  border: none;
+  background: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #6b7280;
+}
+
+.cv-ai-tagline {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.cv-ai-body {
+  margin-top: 0.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cv-ai-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 1rem;
+}
+
+.cv-ai-footer {
+  position: sticky;
+  bottom: 0;
+  background: #ffffff;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-top: 1px solid var(--joblu-border-soft);
+}
+
+
+.cv-ai-body label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+.cv-ai-body textarea,
+.cv-ai-body select {
+  margin-top: 0.35rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 0.85rem;
+}
+
+.cv-ai-body textarea:focus,
+.cv-ai-body select:focus {
+  outline: none;
+  border-color: var(--joblu-primary);
+  box-shadow: 0 0 0 2px rgba(99, 55, 183, 0.2);
+}
+
+.cv-ai-generate {
+  align-self: flex-start;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid var(--joblu-primary);
+  background: var(--joblu-primary);
+  color: #f9fafb;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.cv-ai-generate:disabled {
+  opacity: 0.7;
+  cursor: default;
+}
+
+.cv-ai-error {
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+.cv-ai-suggestion {
+  margin-top: 0.25rem;
+  padding: 0.6rem 0.7rem;
+  border-radius: 0.75rem;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  font-size: 0.8rem;
+}
+
+.cv-ai-suggestion h4 {
+  margin: 0 0 0.35rem 0;
+  font-size: 0.9rem;
+}
+
+.cv-ai-suggestion pre {
+  margin: 0;
+  white-space: pre-wrap;
+  font-family: inherit;
+  font-size: 0.8rem;
+  color: #4b5563;
+}
+
+.cv-ai-footer {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cv-ai-apply {
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  border: 1px solid #22c55e;
+  background: #22c55e;
+  color: #f9fafb;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.cv-ai-apply:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.cv-save-message {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.cv-save-message--error {
+  color: #b91c1c;
+}
+
+.cv-save-message--success {
+  color: #166534;
+}
+
+.cv-contact-social {
+  margin-top: 0.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cv-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--joblu-primary);
+  text-decoration: none;
+}
+
+.cv-contact-link:hover {
+  text-decoration: underline;
+}
+
+.cv-contact-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 1px solid #d1d5db;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+}
+
+/* ====== CV Preview inline  ====== */
+
+.cv-preview-job-title {
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.cv-preview-contact {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.cv-preview-divider {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.cv-preview-section {
+  margin-top: 1rem;
+}
+
+.cv-preview-paragraph {
+  margin-top: 0.25rem;
+}
+
+.cv-preview-paragraph-preline {
+  margin-top: 0.25rem;
+  white-space: pre-line;
+}
+
+.cv-preview-chip-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.cv-preview-chip {
+  display: inline-block;
+  background-color: rgba(99, 55, 183, 0.08);
+  color: var(--joblu-primary-dark, #3b82f6);
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+
+/* ===========================
+   ⚙️ Header Row + Gear Button
+   =========================== */
+
+.cv-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cv-header-row h2 {
+  margin: 0;
+}
+
+.cv-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-clear-btn:hover {
+  background: #dc2626 !important;
+  border-color: #dc2626 !important;
+  color: #ffffff !important;
+  transform: rotate(0deg) !important;
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3) !important;
+}
+
+.cv-clear-btn:active {
+  transform: scale(0.92) !important;
+}
+
+.cv-clear-confirm-btn {
+  background: #dc2626;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.cv-clear-confirm-btn:hover {
+  background: #b91c1c;
+}
+
+.cv-settings-gear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #e5e7eb;
+  background: #f9fafb;
+  color: #6b7280;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.cv-settings-gear:hover {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  border-color: var(--joblu-primary);
+  transform: rotate(45deg);
+  box-shadow: 0 4px 14px rgba(99, 55, 183, 0.3);
+}
+
+.cv-settings-gear:active {
+  transform: rotate(45deg) scale(0.92);
+}
+
+/* ===========================
+   ⚙️ Settings Modal
+   =========================== */
+
+.cv-settings-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.3);
+  z-index: 30;
+}
+
+.cv-settings-modal {
+  position: relative;
+  z-index: 31;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.18);
+  animation: settingsSlideIn 0.2s ease-out;
+}
+
+@keyframes settingsSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cv-settings-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.cv-settings-modal-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--joblu-text-main);
+}
+
+.cv-settings-modal-close {
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+
+.cv-settings-modal-close:hover {
+  color: #374151;
+  background: #f3f4f6;
+}
+
+.cv-settings-modal-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cv-settings-modal-body label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cv-settings-modal-body select,
+.cv-settings-modal-body input[type="text"] {
+  margin-top: 0.35rem;
+  padding: 0.5rem 0.7rem;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  background: #f9fafb;
+  font-size: 0.9rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.cv-settings-modal-body select:focus,
+.cv-settings-modal-body input[type="text"]:focus {
+  outline: none;
+  border-color: var(--joblu-primary);
+  box-shadow: 0 0 0 2px rgba(99, 55, 183, 0.15);
+}
+
+.cv-settings-checkbox {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+
+.cv-settings-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--joblu-primary);
+  cursor: pointer;
+  margin: 0;
+}
+
+/* ===========================
+   Responsive Crear CV
+   =========================== */
+
+
+@media (max-width: 1024px) {
+  .cv-builder {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .cv-column {
+    padding: 1rem 0.75rem;
+  }
+
+  .cv-column h2 {
+    margin-bottom: 0.6rem;
+  }
+
+  .cv-section-toggle {
+    margin-top: 0.75rem;
+  }
+}
+
+/* Mobile chico */
+@media (max-width: 640px) {
+  .cv-column {
+    padding: 1.75rem 1.85rem;
+  }
+
+
+  .cv-form-group-inline {
+    grid-template-columns: 1fr;
+  }
+
+  .cv-form label {
+    font-size: 0.85rem;
+  }
+
+  .cv-form input,
+  .cv-form textarea {
+    font-size: 0.9rem;
+  }
+
+  .cv-preview-wrapper {
+    padding: 1rem 0;
+    background: transparent;
+  }
+
+  .cv-preview-paper {
+    padding: 1.25rem 1rem;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  }
+
+  .cv-actions {
+    justify-content: flex-start;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+}
+
+
+
+/* ===========================
+   👁️ Botón Ocultar/Mostrar sección
+   =========================== */
+.cv-visibility-btn {
+  background: transparent;
+  color: var(--joblu-primary, #6337b7);
+  border: none;
+  border-radius: 999px;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  margin-left: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+  opacity: 0.7;
+}
+
+.cv-visibility-btn:hover {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+.cv-visibility-btn--hidden {
+  color: #9ca3af;
+  opacity: 0.5;
+}
+
+.cv-visibility-btn--hidden:hover {
+  color: var(--joblu-primary, #6337b7);
+  opacity: 0.85;
+}
+
+/* ===========================
+   🖨️ PDF Generation Helpers
+   =========================== */
+
+/* Evita que las secciones se corten a la mitad en el PDF */
+.cv-preview-section,
+.cv-preview-contact,
+.cv-preview-header {
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* ============================================================
+   🎓 ONBOARDING TOUR — CvBuilder JOBLU
+   ============================================================ */
+
+.tour-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  /* NO background here — the spotlight's box-shadow IS the mask.
+     A separate background here causes double-darkening. */
+  pointer-events: none;
+}
+
+.tour-spotlight {
+  position: fixed;
+  z-index: 9001;
+  border-radius: 12px;
+  /* The box-shadow IS the overlay — its outer spread creates the dark mask.
+     Opacity 0.45 keeps bg readable while still focusing on the target. */
+  box-shadow:
+    0 0 0 3px rgba(33, 219, 210, 0.7),
+    /* turquoise accent border */
+    0 0 0 9999px rgba(8, 15, 35, 0.45);
+  /* dim mask — NOT too dark */
+  pointer-events: none;
+  transition: top 0.35s ease, left 0.35s ease, width 0.35s ease, height 0.35s ease;
+}
+
+.tour-tooltip {
+  position: fixed;
+  z-index: 9100;
+  width: 320px;
+  background: var(--joblu-surface, #ffffff);
+  border-radius: 16px;
+  padding: 1.25rem 1.4rem 1.1rem;
+  box-shadow:
+    0 0 0 2px rgba(33, 219, 210, 0.3),
+    0 20px 60px rgba(15, 23, 42, 0.22);
+  animation: tour-pop-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  pointer-events: auto;
+  /* ensure clicks land on buttons */
+}
+
+@keyframes tour-pop-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.tour-tooltip--center {
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%);
+  width: 360px;
+}
+
+.tour-dots {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 0.65rem;
+}
+
+.tour-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.tour-dot--active {
+  background: var(--joblu-primary-accent, #21dbd2);
+  transform: scale(1.3);
+}
+
+.tour-step-label {
+  margin: 0 0 0.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--joblu-primary-accent, #21dbd2);
+  font-family: var(--font-subtitle);
+}
+
+.tour-title {
+  margin: 0 0 0.55rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+  font-family: var(--font-subtitle);
+  color: var(--joblu-text-main, #0f172a);
+  line-height: 1.25;
+}
+
+.tour-body {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--joblu-text-muted, #64748b);
+  line-height: 1.55;
+}
+
+.tour-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.tour-nav-btns {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.tour-btn-skip {
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  color: var(--joblu-text-muted, #9ca3af);
+  cursor: pointer;
+  padding: 0.25rem 0.1rem;
+  transition: color 0.15s ease;
+}
+
+.tour-btn-skip:hover {
+  color: #e11d48;
+}
+
+.tour-btn-secondary {
+  background: transparent;
+  border: 1.5px solid var(--joblu-primary, #6337b7);
+  color: var(--joblu-primary, #6337b7);
+  border-radius: 10px;
+  padding: 0.45rem 0.9rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-subtitle);
+  cursor: pointer;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.tour-btn-secondary:hover {
+  background: rgba(99, 55, 183, 0.08);
+}
+
+.tour-btn-primary {
+  background: var(--joblu-primary, #6337b7);
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.45rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+  cursor: pointer;
+  transition: filter 0.18s ease, transform 0.15s ease;
+  white-space: nowrap;
+}
+
+.tour-btn-primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .tour-tooltip {
+    width: calc(100vw - 24px);
+    left: 12px !important;
+  }
+
+  .tour-tooltip--center {
+    top: auto !important;
+    bottom: 1rem !important;
+    left: 12px !important;
+    transform: none;
+  }
+
+  .tour-actions {
+    flex-wrap: wrap;
+  }
+}
+
+.cv-contact-social {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.cv-contact-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #f3f4f6;
+  color: #374151;
+  padding: 4px 12px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  border: 1px solid #e5e7eb;
+}
+
+.cv-contact-link:hover {
+  background-color: #e5e7eb;
+  transform: translateY(-1px);
+}
+
+.template-visual .cv-contact-link {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: transparent;
+}
+
+/* Placeholders de CV */
+.cv-placeholder {
+  opacity: 0.5;
+  font-style: italic;
+}
+
+@media print {
+  .cv-placeholder {
+    display: none !important;
+  }
+}

@@ -1,0 +1,148 @@
+.app-footer {
+  background: var(--joblu-primary);
+  color: var(--joblu-surface);
+  padding: 3rem 1rem 1.5rem;
+  margin-top: auto;
+  /* Push to bottom if content is short */
+  font-family: var(--font-body);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+  align-items: start;
+  /* every column starts at the same top edge */
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-logo {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.footer-logo-img {
+  display: block;
+  height: 44px;
+  /* proportional to footer column headings */
+  width: auto;
+  object-fit: contain;
+}
+
+.footer-description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 300px;
+}
+
+.footer-title {
+  font-family: var(--font-subtitle);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-top: 0;
+  /* strip browser h3 default top margin */
+  margin-bottom: 1.2rem;
+  color: var(--joblu-primary-accent);
+  line-height: 1;
+  /* match logo line-height */
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-link {
+  color: var(--joblu-surface);
+  opacity: 0.8;
+  transition: opacity 0.2s, color 0.2s;
+  font-size: 0.95rem;
+  width: fit-content;
+}
+
+.footer-link:hover {
+  opacity: 1;
+  color: var(--joblu-primary-accent);
+}
+
+.footer-socials {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  color: var(--joblu-surface);
+}
+
+.social-icon:hover {
+  background-color: var(--joblu-primary-accent);
+  color: var(--joblu-primary);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+  .app-footer {
+    padding: 2rem 1rem;
+    text-align: center;
+    /* Centra el texto de descripción y copyright */
+  }
+
+  .footer-content {
+    display: grid;
+    /* Cambiamos a 2 columnas para que Navegación y Legal queden lado a lado */
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  /* El primer div (Logo y descripción) ocupa todo el ancho */
+  .footer-section:first-child {
+    grid-column: 1 / -1;
+    align-items: center;
+    /* Centra el logo y texto */
+  }
+
+  /* El último div (Redes sociales) ocupa todo el ancho */
+  .footer-section:last-child {
+    grid-column: 1 / -1;
+    align-items: center;
+  }
+
+  .footer-socials {
+    justify-content: center;
+    /* Centra los iconos */
+  }
+
+  /* Asegura que los links dentro de las secciones también se centren si es necesario */
+  .footer-links {
+    align-items: center;
+  }
+}

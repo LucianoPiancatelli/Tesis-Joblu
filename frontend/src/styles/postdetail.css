@@ -1,0 +1,266 @@
+/* ============================
+   Comunidad Joblu: detalle de post
+============================ */
+
+.postdetail {
+  max-width: 780px;
+  margin: 1.5rem auto 2rem;
+}
+
+/* Barra superior con botón de volver */
+.postdetail-back {
+  margin-bottom: 0.5rem;
+}
+
+/* 
+  .postdetail-back-link usa la clase global .btn-secondary de index.css.
+  Este bloque sólo añade el estilo pequeño del ícono "←" 
+  sin pisar dimensiones ni border-radius del sistema de diseño.
+*/
+.postdetail-back-link {
+  /* Tamaño compacto respecto al .btn-secondary genérico */
+  padding: 0.45rem 1rem;
+  font-size: 0.88rem;
+}
+
+/* ─── Título, meta y texto principal del post ─── */
+
+.postdetail-title {
+  margin-top: 0.15rem;
+  margin-bottom: 0.15rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--joblu-text-main);
+}
+
+.postdetail-meta {
+  margin: 0 0 0.45rem;
+  font-size: 0.85rem;
+  color: var(--joblu-text-muted);
+}
+
+/* ─── Likes ─── */
+
+.postdetail-like-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+}
+
+.postdetail-like-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 1rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 1.5px solid var(--joblu-border-soft);
+  background: var(--joblu-surface);
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* Estado hover */
+.postdetail-like-button:hover {
+  border-color: var(--joblu-primary-accent);
+  background: rgba(33, 219, 210, 0.07);
+  color: var(--joblu-text-main);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(33, 219, 210, 0.2);
+}
+
+/* Estado activo (liked) — soft tint con turquesa JOBLU */
+.postdetail-like-button.is-liked {
+  border: 1px solid var(--joblu-primary-accent);
+  background: rgba(33, 219, 210, 0.08);
+  /* texto turquesa oscuro para contraste sobre fondo claro */
+  color: #0fb8b0;
+  font-weight: 700;
+}
+
+.postdetail-like-button.is-liked:hover {
+  background: rgba(33, 219, 210, 0.15);
+  box-shadow: 0 2px 8px rgba(33, 219, 210, 0.22);
+  transform: translateY(-1px);
+}
+
+.postdetail-like-count {
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+  line-height: 1;
+  /* alineación vertical perfecta con el botón */
+  display: inline-flex;
+  align-items: center;
+}
+
+/* ─── Contenido del post ─── */
+
+.postdetail-content {
+  padding: 1rem 1.2rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  background: var(--joblu-surface);
+  box-shadow: var(--joblu-shadow-sm);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--joblu-text-main);
+  margin-bottom: 1rem;
+}
+
+/* ─── Botón de eliminar (solo autor) ─── */
+
+.postdetail-delete-btn {
+  margin-top: 0.25rem;
+  margin-bottom: 1.25rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 1.5px solid #fecaca;
+  background: #fef2f2;
+  font-size: 0.85rem;
+  color: #b91c1c;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.postdetail-delete-btn:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  transform: translateY(-1px);
+}
+
+/* ─── Sección de Comentarios ─── */
+
+.postdetail-comments {
+  margin-top: 1.5rem;
+}
+
+.postdetail-comments-title {
+  margin-bottom: 0.75rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--joblu-text-main);
+}
+
+.postdetail-comments-empty {
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+  font-style: italic;
+}
+
+.postdetail-comments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Cada tarjeta de comentario */
+.postdetail-comment {
+  padding: 0.75rem 1rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  background: var(--joblu-surface);
+  box-shadow: var(--joblu-shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.postdetail-comment:hover {
+  box-shadow: var(--joblu-shadow-md);
+}
+
+.postdetail-comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.3rem;
+}
+
+.postdetail-comment-author {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--joblu-text-main);
+}
+
+.postdetail-comment-meta {
+  font-size: 0.8rem;
+  color: var(--joblu-text-muted);
+}
+
+.postdetail-comment-body {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--joblu-text-main);
+  line-height: 1.5;
+}
+
+.postdetail-comment-row {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.postdetail-comment-row > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.comment-delete-btn {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+  margin-top: 0.2rem;
+}
+
+.comment-delete-btn:hover {
+  color: #e11d48;
+}
+
+/* ─── Textarea de comentarios (override sobre .community-input) ─── */
+
+.community-form--compact .community-textarea.community-input {
+  border: 1.5px solid var(--joblu-border-soft);
+  background-color: var(--joblu-surface);
+  border-radius: var(--joblu-radius-lg);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.community-form--compact .community-textarea.community-input::placeholder {
+  color: var(--joblu-text-muted);
+  opacity: 0.75;
+}
+
+.community-form--compact .community-textarea.community-input:focus {
+  outline: none;
+  border-color: var(--joblu-primary-accent);
+  background-color: var(--joblu-surface);
+  box-shadow:
+    0 0 0 3px rgba(33, 219, 210, 0.18),
+    0 4px 12px rgba(33, 219, 210, 0.1);
+  transform: none;
+}
+
+/* ─── Estados generales ─── */
+
+.postdetail-status {
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+}
+
+.postdetail-action-error {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  color: #b91c1c;
+}

@@ -1,0 +1,13 @@
+[2026-03-09T14:35:58.722Z] GET /api/cvs - Error: EBUSY: resource busy or locked, open 'C:\Users\Luciano\Desktop\Joblu\backend\access_logs.txt'
+Stack: Error: EBUSY: resource busy or locked, open 'C:\Users\Luciano\Desktop\Joblu\backend\access_logs.txt'
+    at Object.writeFileSync (node:fs:2426:20)
+    at Object.appendFileSync (node:fs:2508:6)
+    at file:///C:/Users/Luciano/Desktop/Joblu/backend/server.js:36:6
+    at Layer.handleRequest (C:\Users\Luciano\Desktop\Joblu\backend\node_modules\router\lib\layer.js:152:17)
+    at trimPrefix (C:\Users\Luciano\Desktop\Joblu\backend\node_modules\router\index.js:342:13)
+    at C:\Users\Luciano\Desktop\Joblu\backend\node_modules\router\index.js:297:9
+    at processParams (C:\Users\Luciano\Desktop\Joblu\backend\node_modules\router\index.js:582:12)
+    at next (C:\Users\Luciano\Desktop\Joblu\backend\node_modules\router\index.js:291:5)
+    at Function.handle (C:\Users\Luciano\Desktop\Joblu\backend\node_modules\router\index.js:186:3)
+    at Function.handle (C:\Users\Luciano\Desktop\Joblu\backend\node_modules\express\lib\application.js:177:15)
+

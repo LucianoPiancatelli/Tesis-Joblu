@@ -1,0 +1,656 @@
+/* ============================================================
+   COMUNIDAD — Estilos Premium JOBLU
+   ============================================================ */
+
+/* ── Wrapper general ──────────────────────────────── */
+.community {
+  padding: 1.5rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: transparent;
+  border: none;
+  animation: joblu-fade-in-up 0.35s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Hero Header ──────────────────────────────────── */
+.community-hero {
+  margin-bottom: 0;
+}
+
+.community-hero h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 800;
+  font-family: var(--font-title);
+  margin: 0 0 0.35rem;
+  color: var(--joblu-text-main);
+}
+
+.community-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--joblu-text-muted);
+  max-width: 52rem;
+  line-height: 1.5;
+}
+
+/* ── Card de Creación ─────────────────────────────── */
+.community-create-card {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  background: var(--joblu-surface);
+  box-shadow: var(--joblu-shadow-md);
+}
+
+.community-create-title {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-subtitle);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--joblu-text-main);
+}
+
+/* Alerta informativa */
+.community-alert-info {
+  background-color: #eff6ff;
+  border-left: 4px solid var(--joblu-primary);
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.85rem;
+  border-radius: 6px;
+  color: #1e3a8a;
+  font-size: 0.88rem;
+}
+
+.community-alert-info a {
+  color: var(--joblu-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Formulario */
+.community-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.55rem;
+}
+
+/* Inputs y textareas */
+.community-input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  padding: 0.55rem 0.8rem;
+  border-radius: 0.65rem;
+  border: 1px solid var(--joblu-border-soft);
+  background-color: var(--joblu-bg-main);
+  color: var(--joblu-text-main);
+  transition: border-color 0.16s ease, box-shadow 0.16s ease, background-color 0.16s ease;
+  box-sizing: border-box;
+}
+
+.community-input::placeholder {
+  color: var(--joblu-text-muted);
+}
+
+.community-input:focus {
+  outline: none;
+  border-color: var(--joblu-primary-accent);
+  background-color: var(--joblu-surface);
+  box-shadow: 0 0 0 2px rgba(33, 219, 210, 0.25);
+}
+
+.community-textarea {
+  resize: vertical;
+  min-height: 4.5rem;
+}
+
+/* Botón submit */
+.community-form button[type="submit"] {
+  border-radius: 12px;
+  padding: 0.7rem 1.5rem;
+  font-family: var(--font-subtitle);
+  font-size: 0.9rem;
+  font-weight: 700;
+  background: var(--joblu-primary-accent);
+  color: #0f172a;
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+  width: fit-content;
+  align-self: flex-end;
+}
+
+.community-form button[type="submit"]:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(33, 219, 210, 0.35);
+}
+
+/* Botón deshabilitado */
+.btn-disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+/* ── Chips de Categoría ───────────────────────────── */
+.community-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.community-chip {
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--joblu-border-soft);
+  background: var(--joblu-surface);
+  color: var(--joblu-text-muted);
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-subtitle);
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+}
+
+.community-chip:hover {
+  border-color: var(--joblu-primary-accent);
+  color: var(--joblu-primary-accent);
+  background: rgba(33, 219, 210, 0.07);
+}
+
+.community-chip--active {
+  background: var(--joblu-primary-accent);
+  border-color: var(--joblu-primary-accent);
+  color: #0f172a;
+}
+
+.community-chip--active:hover {
+  color: #0f172a;
+  filter: brightness(1.06);
+}
+
+/* ── Título del Feed ──────────────────────────────── */
+.community-list-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+  color: var(--joblu-text-main);
+  letter-spacing: 0.01em;
+}
+
+/* ── Lista de Posts ───────────────────────────────── */
+.community-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* ── Card de Post ─────────────────────────────────── */
+.community-post {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--joblu-radius-lg);
+  background: var(--joblu-surface);
+  border: 1px solid var(--joblu-border-soft);
+  border-top: 4px solid var(--joblu-primary);
+  box-shadow: var(--joblu-shadow-md);
+  position: relative;
+  transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+  animation: joblu-fade-in-up 0.3s ease;
+}
+
+.community-post:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+  border-color: var(--joblu-primary-accent);
+  border-top-color: var(--joblu-primary-accent);
+}
+
+body.dark-mode .community-post {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Header del post: badge + meta en una línea */
+.community-post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Badge de categoría */
+.community-category-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: rgba(99, 55, 183, 0.1);
+  color: var(--joblu-primary);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-subtitle);
+  flex-shrink: 0;
+}
+
+/* Meta: autor · fecha en una sola línea */
+.community-post-meta {
+  font-size: 0.8rem;
+  color: var(--joblu-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.community-post-meta-sep {
+  opacity: 0.5;
+}
+
+/* Cuerpo del post */
+.post-main {
+  width: 100%;
+}
+
+/* Título del post — foco visual principal */
+.community-post-title {
+  display: block;
+  font-weight: 700;
+  font-size: 0.98rem;
+  font-family: var(--font-subtitle);
+  text-decoration: none;
+  color: var(--joblu-text-main);
+  margin-bottom: 0.3rem;
+  line-height: 1.35;
+  transition: color 0.15s ease;
+}
+
+.community-post-title:hover {
+  color: var(--joblu-primary);
+}
+
+/* Extracto del post */
+.community-post-excerpt {
+  margin: 0;
+  font-size: 0.88rem;
+  color: var(--joblu-text-muted);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Barra de Acciones (Like, Comentario, Compartir) ── */
+.post-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-top: 0.6rem;
+  border-top: 1px solid var(--joblu-border-soft);
+}
+
+.action-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.65rem;
+  border-radius: 8px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: var(--joblu-text-muted);
+  transition: background-color 0.18s ease, color 0.18s ease;
+}
+
+.action-btn:hover {
+  background-color: rgba(99, 55, 183, 0.07);
+  color: var(--joblu-primary);
+}
+
+/* Estado liked — solo el corazón usa color emocional */
+.action-btn.liked {
+  color: #e11d48;
+}
+
+.action-btn.liked .action-icon {
+  transform: scale(1.15);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.action-icon {
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.action-count {
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ── Vacío / Cargando ─────────────────────────────── */
+.community-empty {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: var(--joblu-text-muted);
+  border: 2px dashed var(--joblu-border-soft);
+  border-radius: var(--joblu-radius-lg);
+}
+
+.community-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 2.5rem;
+  color: var(--joblu-text-muted);
+  font-weight: 500;
+}
+
+/* ── Comentarios ──────────────────────────────────── */
+.community-comments-section {
+  margin-top: 0.25rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--joblu-border-soft);
+  animation: joblu-fade-in 0.2s ease;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  margin-bottom: 0.75rem;
+}
+
+.comment-item {
+  font-size: 0.88rem;
+  background: rgba(99, 55, 183, 0.04);
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border-left: 3px solid var(--joblu-primary);
+  color: var(--joblu-text-main);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.comment-item-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.comment-delete-btn {
+  background: none;
+  border: none;
+  color: #d1d5db;
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+
+.comment-delete-btn:hover {
+  color: #e11d48;
+}
+
+.no-comments {
+  font-size: 0.82rem;
+  color: var(--joblu-text-muted);
+  font-style: italic;
+}
+
+.comment-form {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.comment-input {
+  flex: 1;
+}
+
+/* Botón de Comentar */
+.btn-comment {
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  background: var(--joblu-primary);
+  color: white;
+  border: none;
+  font-family: var(--font-subtitle);
+  font-size: 0.85rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.btn-comment:hover:not(:disabled) {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(99, 55, 183, 0.25);
+}
+
+/* ── Varios ───────────────────────────────────────── */
+.community-helper-text {
+  margin: 0.2rem 0 0;
+  font-size: 0.85rem;
+  color: var(--joblu-text-muted);
+}
+
+.community-status-text {
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+}
+
+/* ── Responsive ───────────────────────────────────── */
+@media (max-width: 640px) {
+  .community {
+    padding: 1rem;
+    margin: 1rem auto;
+    gap: 1.25rem;
+  }
+
+  .community-post {
+    padding: 0.9rem 1rem;
+  }
+
+  .community-hero h2 {
+    font-size: 1.5rem;
+  }
+
+  .community-chips {
+    gap: 0.4rem;
+  }
+
+  .community-chip {
+    font-size: 0.78rem;
+    padding: 0.25rem 0.65rem;
+  }
+
+  .community-form button[type="submit"] {
+    width: 100%;
+    align-self: center;
+  }
+}
+
+/* ============================================================
+   USER PROFILE POPUP (Community)
+   ============================================================ */
+.profile-popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.profile-popup-content {
+  background: var(--joblu-surface);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  position: relative;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--joblu-border-soft);
+  border-top: 4px solid var(--joblu-primary-accent);
+  overflow: hidden;
+  animation: popupSlideUp 0.3s ease-out;
+}
+
+@keyframes popupSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.profile-popup-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background: none;
+  border: none;
+  color: var(--joblu-text-muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10;
+}
+
+.profile-popup-close:hover {
+  color: var(--joblu-text-main);
+}
+
+.profile-popup-loading,
+.profile-popup-error {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--joblu-text-muted);
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.profile-popup-header {
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid var(--joblu-border-soft);
+  background: linear-gradient(180deg, rgba(33, 219, 210, 0.05) 0%, rgba(255,255,255,0) 100%);
+}
+
+.profile-popup-avatar,
+.profile-popup-avatar-placeholder {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  object-fit: cover;
+  border: 3px solid #fff;
+  box-shadow: 0 4px 12px rgba(99, 55, 183, 0.15);
+}
+
+.profile-popup-avatar-placeholder {
+  color: var(--joblu-border-soft);
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+}
+
+.profile-popup-name {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--joblu-text-main);
+  font-family: var(--font-subtitle);
+}
+
+.profile-popup-preferences {
+  padding: 1.5rem;
+  background: #f8fafc;
+}
+
+.preferences-title {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--joblu-primary);
+  margin: 0 0 1rem;
+  font-weight: 700;
+}
+
+.preferences-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.preferences-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  border: 1px solid var(--joblu-border-soft);
+  box-shadow: var(--joblu-shadow-sm);
+}
+
+.preference-icon {
+  color: var(--joblu-primary-accent);
+  font-size: 1.1rem;
+}
+
+.preference-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.preference-label {
+  font-size: 0.7rem;
+  color: var(--joblu-text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.preference-value {
+  font-weight: 600;
+  color: var(--joblu-text-main);
+  font-size: 0.9rem;
+}
+
+.no-preferences-msg {
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+  font-style: italic;
+  text-align: center;
+  margin: 0;
+}

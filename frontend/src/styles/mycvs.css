@@ -1,0 +1,336 @@
+/* ============================================================
+   MIS CVs — usa variables globales de index.css
+   ============================================================ */
+
+.mycvs {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+  animation: joblu-fade-in-up 0.4s ease-out;
+}
+
+.mycvs header {
+  margin-bottom: 2rem;
+}
+
+.mycvs header h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  color: var(--joblu-text-main);
+}
+
+.mycvs-subtitle {
+  margin: 0;
+  color: var(--joblu-text-muted);
+  font-size: 0.95rem;
+}
+
+/* ── Estado vacío ────────────────────────────── */
+.mycvs-empty {
+  padding: 2rem 1.5rem;
+  border-radius: var(--joblu-radius-lg);
+  background: var(--joblu-surface);
+  border: 2px dashed var(--joblu-border-soft);
+  text-align: center;
+  box-shadow: var(--joblu-shadow-sm);
+}
+
+.mycvs-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--joblu-primary);
+  font-family: var(--font-subtitle);
+  transition: opacity 0.2s ease;
+}
+
+.mycvs-link:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ── Lista de CVs ────────────────────────────── */
+.mycvs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* ── Tarjeta de CV ───────────────────────────── */
+.mycvs-card {
+  padding: 1.5rem;
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  background: var(--joblu-surface);
+  box-shadow: var(--joblu-shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: box-shadow 0.25s ease, transform 0.2s ease;
+}
+
+.mycvs-card:hover {
+  box-shadow: var(--joblu-shadow-lg);
+  transform: translateY(-2px);
+}
+
+.mycvs-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.mycvs-card-title {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--joblu-text-main);
+}
+
+.mycvs-card-role {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+}
+
+.mycvs-card-date {
+  margin: 0.2rem 0 0;
+  font-size: 0.8rem;
+  color: var(--joblu-text-muted);
+  opacity: 0.75;
+}
+
+/* ── Acciones de tarjeta (botones alineados) ─── */
+.mycvs-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  /* garantiza alineación vertical entre botones */
+}
+
+.mycvs-card-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  border: 2px solid var(--joblu-primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: var(--font-subtitle);
+  cursor: pointer;
+  background: #f5f3ff;
+  color: var(--joblu-primary);
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Variante primaria (Editar) */
+.mycvs-card-btn.primary {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  border-color: var(--joblu-primary);
+}
+
+.mycvs-card-btn.primary:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: var(--joblu-shadow-md);
+}
+
+/* Variante secundaria por defecto (hover rellena) */
+.mycvs-card-btn:not(.primary):not(.danger):hover {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: var(--joblu-shadow-md);
+}
+
+/* Variante destructiva (Eliminar) */
+.mycvs-card-btn.danger {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.mycvs-card-btn.danger:hover {
+  background: #fee2e2;
+  border-color: #fca5a5;
+  transform: translateY(-2px);
+}
+
+/* Hint al confirmar eliminación */
+.mycvs-confirm-hint {
+  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+/* ── Barra de acciones superior ──────────────── */
+.mycvs-actions-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+.mycvs-import-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-family: var(--font-subtitle);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--joblu-surface);
+  color: var(--joblu-text-main);
+  border: 1px solid var(--joblu-border-soft);
+  box-shadow: var(--joblu-shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.mycvs-import-btn:hover:not(:disabled) {
+  border-color: var(--joblu-primary);
+  color: var(--joblu-primary);
+  box-shadow: var(--joblu-shadow-md);
+}
+
+.mycvs-import-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* ── Mensaje de error ────────────────────────── */
+.error-msg {
+  color: #b91c1c;
+  font-size: 0.9rem;
+  margin: 0.5rem 0 1rem;
+  padding: 0.75rem 1rem;
+  background: #fef2f2;
+  border-radius: 8px;
+  border: 1px solid #fecaca;
+}
+
+/* ── Responsive ──────────────────────────────── */
+@media (max-width: 768px) {
+  .mycvs {
+    max-width: 100%;
+    padding: 1rem;
+    margin: 1rem auto;
+  }
+
+  .mycvs header h2 {
+    font-size: 1.5rem;
+  }
+
+  .mycvs-card {
+    padding: 1.25rem;
+  }
+
+  .mycvs-card-btn {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .mycvs-actions-bar {
+    flex-wrap: wrap;
+  }
+}
+
+/* ============================================================
+   🎨 MIS PLANTILLAS (sección dentro de Mis CVs)
+   ============================================================ */
+
+.mycvs-templates-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--joblu-border-soft);
+}
+
+.mycvs-templates-header {
+  margin-bottom: 1.5rem;
+}
+
+.mycvs-templates-header h2 {
+  font-size: 1.4rem;
+  margin: 0 0 0.25rem;
+}
+
+.mycvs-templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.mycvs-template-card {
+  border: 1.5px solid var(--joblu-border-soft);
+  border-radius: var(--joblu-radius-lg);
+  background: var(--joblu-surface);
+  box-shadow: var(--joblu-shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mycvs-template-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--joblu-shadow-md);
+}
+
+.mycvs-template-thumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+
+.mycvs-template-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.mycvs-template-dot {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 0.6rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.mycvs-template-body {
+  padding: 0.75rem 1rem 0.5rem;
+  flex: 1;
+}
+
+.mycvs-template-body h4 {
+  margin: 0 0 0.2rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.mycvs-template-category {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--joblu-text-muted);
+}
+
+.mycvs-template-btn {
+  margin: 0 1rem 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--joblu-primary-accent);
+  background: rgba(33, 219, 210, 0.07);
+  color: var(--joblu-primary-accent);
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.mycvs-template-btn:hover {
+  background: rgba(33, 219, 210, 0.16);
+  transform: translateY(-1px);
+}

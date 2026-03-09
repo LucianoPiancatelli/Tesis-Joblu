@@ -1,0 +1,1360 @@
+/* ==========================================================================
+   1. VARIABLES Y ANIMACIONES
+   ========================================================================== */
+@keyframes joblu-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   2. IDENTIDAD DE MARCA Y BOTONES UNIFICADOS
+   ========================================================================== */
+
+
+.brand-name-comunidad {
+  color: inherit;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hero-cta,
+.view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 160px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none !important;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+}
+
+.hero-cta {
+  background: var(--joblu-primary, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(99, 55, 183, 0.35);
+}
+
+.view-all-btn {
+  background: var(--joblu-primary, #6366f1);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.2);
+}
+
+.hero-cta:hover,
+.view-all-btn:hover {
+  background-color: #4f46e5;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+/* ==========================================================================
+   3. DASHBOARD (Usuario Logueado)
+   ========================================================================== */
+.home-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  animation: joblu-fade-in-up 0.4s ease;
+}
+
+.dashboard-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  align-items: stretch;
+}
+
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.8rem;
+  background: var(--joblu-surface);
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  box-shadow: var(--joblu-shadow-md);
+}
+
+/* Todos los botones/links directos dentro de stat-card
+   bajan al fondo independientemente del contenido superior */
+.stat-card>.hero-cta,
+.stat-card>.btn-secondary,
+.stat-card>button {
+  margin-top: auto;
+  align-self: stretch;
+}
+
+.brand-border {
+  border-top: 4px solid var(--joblu-primary) !important;
+}
+
+/* --- BARRA DE PROGRESO DEL CV --- */
+.progress-container-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0;
+}
+
+.stat-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--joblu-primary, #6366f1);
+  min-width: 60px;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 12px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #6366f1, #7c3aed);
+  border-radius: 999px;
+  transition: width 0.6s ease;
+}
+
+.stat-hint {
+  font-size: 0.85rem;
+  color: var(--joblu-text-muted, #6b7280);
+  margin-top: 0.25rem;
+}
+
+/* --- CHECKLIST DE PROGRESO --- */
+.progress-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 0.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.progress-checklist li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+
+.checklist-icon {
+  font-size: 0.85rem;
+  width: 18px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.checklist-done {
+  color: #16a34a;
+}
+
+.checklist-pending {
+  color: var(--joblu-text-muted, #9ca3af);
+}
+
+/* --- SECCIÓN UNIFICADA: OPORTUNIDADES Y COMUNIDAD --- */
+.unified-dashboard-section {
+  background: var(--joblu-surface);
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  border-top: 4px solid var(--joblu-primary-accent);
+  box-shadow: var(--joblu-shadow-md);
+  padding: 2rem 2rem 6rem;
+  /* padding-bottom: espacio para el view-all-btn absoluto */
+  margin-top: 2rem;
+}
+
+.unified-section-header {
+  margin-bottom: 1.25rem;
+}
+
+.unified-section-header h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.4rem;
+}
+
+.unified-section-header p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--joblu-text-muted);
+}
+
+/* --- CARRUSEL DE EMPLEOS MEJORADO --- */
+.dashboard-recommendations {
+  position: relative;
+  padding-bottom: 4rem;
+  margin-top: 0;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid var(--joblu-border-soft);
+  color: var(--joblu-primary);
+  box-shadow: var(--joblu-shadow-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-arrow[aria-label="Anterior"] {
+  left: -20px;
+}
+
+.carousel-arrow[aria-label="Siguiente"] {
+  right: -20px;
+}
+
+.carousel-arrow:hover {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(99, 55, 183, 0.3);
+  transform: translateY(-50%) scale(1.05);
+}
+
+.view-all-btn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 12px;
+}
+
+.view-all-btn:hover {
+  background-color: #4f46e5;
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+}
+
+.jobs-carousel-scroll {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 1rem 0;
+  scrollbar-width: none;
+}
+
+.jobs-carousel-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.home-card-trabajo-mini {
+  min-width: 280px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid var(--joblu-border-soft);
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.home-card-trabajo-mini:hover {
+  transform: translateY(-5px);
+}
+
+/* ==========================================================================
+   4. LANDING PAGE (Invitado) - NUEVO BANNER OVERLAY
+   ========================================================================== */
+.home-hero-banner {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  margin-top: -1.5rem;
+  padding: 0;
+}
+
+.hero-banner-image-wrapper {
+  /* height: 450px; <-- REMOVE FIXED HEIGHT */
+  aspect-ratio: 3/1;
+  /* Maintain aspect ratio like 1350x450 */
+  width: 100%;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-banner-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  filter: none;
+  opacity: 1;
+}
+
+
+.hero-banner-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  /* 👈 clave */
+  padding-left: 4rem;
+  /* separacion del borde izquierdo */
+  padding-right: 2rem;
+
+  background: linear-gradient(90deg,
+      rgba(0, 0, 0, 0.55) 0%,
+      rgba(0, 0, 0, 0.45) 35%,
+      rgba(0, 0, 0, 0.00) 70%);
+}
+
+
+
+.hero-banner-content {
+
+  max-width: clamp(350px, 45vw, 600px);
+  /* Ancho fluido */
+
+  max-width: clamp(350px, 45vw, 600px);
+  /* Ancho fluido */
+  color: #fff;
+  text-align: left;
+}
+
+.hero-banner-content h1 {
+
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+  /* Texto responsive */
+
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+  /* Texto responsive */
+
+  margin-bottom: 0.8rem;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+}
+
+.hero-banner-content p {
+
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  /* Texto responsive */
+
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  /* Texto responsive */
+
+  margin-bottom: 2rem;
+  opacity: 0.95;
+  line-height: 1.5;
+}
+
+
+/* Restaurar estilos de Historia y Pasos */
+.home-como-funciona {
+  padding: 5rem 1.5rem;
+  background: #f8fafc;
+}
+
+.home-como-titulo {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.home-como-pasos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 2.5rem;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+.home-paso {
+  background: var(--joblu-surface, #ffffff);
+  padding: 2rem;
+  border-radius: var(--joblu-radius-lg);
+  text-align: center;
+  border: 1px solid var(--joblu-border-soft);
+  /* Acento turquesa superior — marca JOBLU */
+  border-top: 3px solid var(--joblu-primary-accent);
+  box-shadow: var(--joblu-shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+/* Elevación en hover — suave y no intrusiva */
+.home-paso:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--joblu-shadow-lg);
+  border-color: rgba(33, 219, 210, 0.35);
+  border-top-color: var(--joblu-primary-accent);
+}
+
+/* Foco accesible para navegación con teclado */
+.home-paso:focus-within {
+  outline: 3px solid var(--joblu-primary-accent);
+  outline-offset: 3px;
+}
+
+.home-paso-numero {
+  background: var(--joblu-primary-accent);
+  color: #ffffff;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  font-weight: 700;
+  font-size: 1rem;
+  /* Sombra turquesa sutil para reforzar el acento */
+  box-shadow: 0 4px 10px rgba(33, 219, 210, 0.35);
+}
+
+/* — Microcopy de beneficio por paso — */
+.paso-beneficio {
+  display: block;
+  margin-top: 0.6rem;
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: var(--joblu-primary-accent);
+  letter-spacing: 0.01em;
+}
+
+/* Separador decorativo entre secciones */
+.section-divider-accent {
+  width: 60px;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--joblu-primary-accent);
+  margin: 0 auto;
+}
+
+.home-sobre {
+  padding: 6rem 1.5rem;
+  background: transparent;
+}
+
+/* Encabezado de la sección */
+.home-sobre-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Eyebrow text "NUESTRA MISIÓN" */
+.home-sobre-eyebrow {
+  display: block;
+  font-family: var(--font-subtitle);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--joblu-primary-accent);
+  margin-bottom: 0.5rem;
+}
+
+.home-sobre-titulo {
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Contenedor narrativo — más estrecho para mejor lectura */
+.home-sobre-contenido {
+  max-width: 750px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Bloque individual de la historia */
+.historia-bloque {
+  padding-left: 1.25rem;
+  /* espacio para la línea decorativa */
+  border-left: 3px solid var(--joblu-primary-accent);
+}
+
+.historia-subtitulo {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-subtitle);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--joblu-text-muted);
+}
+
+.historia-bloque p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--joblu-text-main);
+}
+
+/* Frases clave resaltadas */
+.highlight {
+  font-weight: 700;
+  color: var(--joblu-primary);
+}
+
+/* Bloque de cierre callout */
+.historia-callout {
+  margin: 1rem 0 0;
+  padding: 1.25rem 1.75rem;
+  border-radius: var(--joblu-radius-lg);
+  background: rgba(99, 55, 183, 0.05);
+  border: 1px solid rgba(99, 55, 183, 0.12);
+  border-left: 4px solid var(--joblu-primary);
+  font-size: 1rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--joblu-text-main);
+  text-align: center;
+}
+
+.historia-callout .brand-name {
+  font-style: normal;
+}
+
+.home-cta-final {
+  background: var(--joblu-surface, #ffffff);
+  padding: 5rem 2rem;
+  text-align: center;
+  border-radius: 32px;
+  max-width: 1120px;
+  margin: 2rem auto 4rem;
+  /* Borde superior de marca + glow sutil en esquinas */
+  border: 1px solid rgba(99, 55, 183, 0.12);
+  border-top: 4px solid var(--joblu-primary);
+  box-shadow:
+    var(--joblu-shadow-md),
+    0 0 40px rgba(33, 219, 210, 0.06);
+}
+
+.home-cta-final h2 {
+  margin: 0 0 0.75rem;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.home-cta-final>p {
+  margin: 0 auto 2rem;
+  max-width: 560px;
+  font-size: 1rem;
+  color: var(--joblu-text-muted);
+  line-height: 1.6;
+}
+
+/* Fila de micro-beneficios */
+.cta-benefits-row {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+}
+
+.cta-benefits-row li {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--joblu-text-muted);
+  letter-spacing: 0.01em;
+}
+
+/* Botones del CTA final */
+.home-cta-botones {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* Enlace secundario ghost */
+.btn-link-secondary {
+  font-family: var(--font-subtitle);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--joblu-primary);
+  text-decoration: none;
+  transition: opacity 0.2s ease, text-decoration-color 0.2s ease;
+  text-underline-offset: 3px;
+}
+
+.btn-link-secondary:hover {
+  text-decoration: underline;
+  opacity: 0.8;
+}
+
+
+/* ==========================================================================
+   5. RESPONSIVE
+   ========================================================================== */
+@media (max-width: 900px) {
+  .hero-banner-overlay {
+    padding: 2rem 1.5rem;
+    justify-content: center;
+    text-align: center;
+
+    /* en mobile, overlay completo para legibilidad */
+    background: rgba(0, 0, 0, 0.55);
+  }
+
+  .hero-banner-image-wrapper {
+    height: 420px;
+  }
+
+  .hero-banner-content {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-banner-image-wrapper {
+    /* 1. Cambiamos el ratio para que sea menos alto (puedes probar con 1/1 o 4/5) */
+    aspect-ratio: 4 / 5;
+    height: auto;
+    /* 2. Limitamos la altura máxima para que no ocupe el 100% de la pantalla */
+    max-height: 75vh;
+  }
+
+  /* 3. Ajustamos el contenido para que respire mejor en mobile */
+  .hero-banner-content {
+    max-width: 90%;
+    /* Evita que el texto toque los bordes */
+  }
+
+  .hero-banner-content h1 {
+    font-size: 2rem;
+    /* Achicamos un poco el título para que no sea tan gigante */
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-banner-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dashboard-grid-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .carousel-arrow[aria-label="Anterior"] {
+    left: 0;
+  }
+
+  .carousel-arrow[aria-label="Siguiente"] {
+    right: 0;
+  }
+
+  .home-dashboard {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .unified-dashboard-section {
+    padding: 1.5rem 1rem 4rem;
+  }
+
+  /* Fix Carrusel Mobile: Scroll de borde a borde */
+  .jobs-carousel-container {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .jobs-carousel-scroll {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 1rem;
+    /* Para que el snap no quede pegado al borde izquierdo */
+    gap: 1rem;
+  }
+
+  .home-card-trabajo-mini {
+    scroll-snap-align: start;
+    min-width: 260px;
+    /* Un poco más chico en mobile para que se vea el siguiente */
+  }
+
+  /* Ocultar flechas en mobile (se usa swipe) */
+  .carousel-controls {
+    display: none;
+  }
+
+  /* Templates en mobile — una columna */
+  .home-templates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==============================================
+   🎨 SECCIÓN: PLANTILLAS PARA TU CV (Dashboard)
+   ============================================== */
+
+.home-templates-section {
+  padding: 3rem 1.5rem 4rem;
+}
+
+.home-templates-header {
+  margin-bottom: 2rem;
+}
+
+.home-templates-header h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0 0 0.35rem;
+}
+
+.home-templates-header p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+}
+
+.home-templates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 1.25rem;
+}
+
+.home-template-card {
+  background: var(--joblu-surface);
+  border: 1.5px solid var(--joblu-border-soft);
+  border-radius: var(--joblu-radius-lg);
+  box-shadow: var(--joblu-shadow-sm);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-template-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--joblu-shadow-md);
+}
+
+/* Estado bloqueado (plantillas premium no adquiridas) */
+.home-template-card.locked {
+  cursor: not-allowed;
+  opacity: 0.85;
+  background: #f8fafc;
+}
+
+.home-template-card.locked:hover {
+  border-color: var(--joblu-border-soft);
+  box-shadow: var(--joblu-shadow-sm);
+  transform: none;
+  /* Evitar la animación de hover */
+}
+
+.home-template-card-lock {
+  padding-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: #94a3b8;
+  /* Gris suave */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Área de la miniatura / color */
+.home-template-card-thumb {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+}
+
+.home-template-card-icon {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.home-template-dot {
+  position: absolute;
+  bottom: 0.7rem;
+  right: 0.75rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* Cuerpo de la card */
+.home-template-card-body {
+  padding: 0.25rem 1.25rem 0.75rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.home-template-card-body h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+/* ── Modificador: card exclusiva ── */
+.home-template-card--exclusive {
+  border-color: rgba(99, 55, 183, 0.25);
+  background: linear-gradient(135deg, var(--joblu-surface) 80%, rgba(99, 55, 183, 0.04) 100%);
+}
+
+/* ── Badges de estado sobre la miniatura ── */
+.badge-exclusive,
+.badge-acquired,
+.badge-actual {
+  position: absolute;
+  top: 0.55rem;
+  left: 0.6rem;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-family: var(--font-subtitle);
+  letter-spacing: 0.03em;
+}
+
+.badge-exclusive {
+  background: linear-gradient(90deg, #6337b7, #9c43f5);
+  color: #ffffff;
+}
+
+.badge-acquired {
+  background: rgba(33, 219, 210, 0.18);
+  color: #0a8a85;
+  border: 1px solid rgba(33, 219, 210, 0.4);
+}
+
+.badge-actual {
+  background: var(--joblu-primary-accent);
+  color: #0f172a;
+}
+
+/* ── Botón CTA base (reemplaza hero-cta en la tienda) ── */
+.home-template-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.75rem 1.25rem 1.25rem;
+  width: calc(100% - 2.5rem);
+  padding: 0.6rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+  border-radius: var(--joblu-radius-lg);
+  border: none;
+  cursor: pointer;
+  transition: filter 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+  background: var(--joblu-primary-accent);
+  color: #0f172a;
+}
+
+.home-template-cta:hover:not(:disabled) {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(33, 219, 210, 0.35);
+}
+
+/* Variante: Desbloquear (violeta) */
+.home-template-cta--unlock {
+  background: var(--joblu-primary);
+  color: #ffffff;
+}
+
+.home-template-cta--unlock:hover {
+  box-shadow: 0 4px 14px rgba(99, 55, 183, 0.35) !important;
+}
+
+/* Variante: En uso (deshabilitado) */
+.home-template-cta--inuse {
+  background: var(--joblu-border-soft);
+  color: var(--joblu-text-muted);
+  cursor: default;
+  opacity: 0.75;
+}
+
+
+.home-template-mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  border: none;
+  background: transparent;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  cursor: default;
+}
+
+.home-template-mobile-summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem 1.25rem 0.25rem;
+  width: 100%;
+}
+
+.home-template-mobile-summary-text {
+  display: contents;
+}
+
+.home-template-mobile-chevron {
+  display: none;
+}
+
+.home-template-collapsible {
+  display: block;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-template-collapsible-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.home-template-category {
+  margin: 0;
+  font-size: 0.75rem;
+  color: var(--joblu-text-muted);
+}
+
+.home-template-description {
+  margin: 0.2rem 0 0;
+  font-size: 0.82rem;
+  color: var(--joblu-text-muted);
+  line-height: 1.4;
+}
+
+.home-template-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.home-template-tag {
+  font-size: 0.68rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(99, 55, 183, 0.08);
+  color: var(--joblu-primary);
+  font-weight: 600;
+}
+
+/* Botón CTA de la card de plantilla */
+.home-template-cta {
+  margin: 0.75rem 1.25rem 1.25rem;
+  width: calc(100% - 2.5rem);
+  align-self: center;
+  /* Override hero-cta padding for compact fit */
+  padding: 0.6rem 1rem !important;
+  font-size: 0.9rem !important;
+}
+
+/* ==============================================
+   📌 TEMPLATES MINI-CARD (Dashboard)
+   ============================================== */
+
+.templates-mini-card {
+  overflow: hidden;
+}
+
+/* Fila scrollable de miniaturas */
+.templates-mini-scroll {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* Firefox */
+  padding-bottom: 0.25rem;
+  margin-top: 0.75rem;
+}
+
+.templates-mini-scroll::-webkit-scrollbar {
+  display: none;
+  /* Chrome/Safari */
+}
+
+/* Item = botón clickeable de cada plantilla */
+.templates-mini-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  flex: 0 0 80px;
+  /* ancho fijo para el snap */
+  scroll-snap-align: start;
+  background: none;
+  border: 1.5px solid var(--joblu-border-soft);
+  border-radius: var(--joblu-radius-lg);
+  padding: 0.5rem 0.4rem 0.6rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  text-align: center;
+}
+
+.templates-mini-item:hover {
+  border-color: var(--joblu-primary);
+  box-shadow: 0 3px 10px rgba(99, 55, 183, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Estado activo — la plantilla actualmente en uso */
+.templates-mini-item--active {
+  border-color: var(--joblu-primary-accent);
+  box-shadow: 0 0 0 2px rgba(33, 219, 210, 0.2);
+}
+
+/* Badge "Actual" */
+.templates-mini-badge {
+  position: absolute;
+  top: -0.45rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--joblu-primary-accent);
+  color: #0f172a;
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 999px;
+  white-space: nowrap;
+  font-family: var(--font-subtitle);
+  letter-spacing: 0.03em;
+}
+
+/* Miniatura de color */
+.templates-mini-thumb {
+  position: relative;
+  width: 52px;
+  height: 44px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.templates-mini-icon {
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.templates-mini-dot {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+/* Nombre de la plantilla */
+.templates-mini-name {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--joblu-text-main);
+  line-height: 1.2;
+}
+
+/* Link de acción */
+.templates-mini-use {
+  font-size: 0.6rem;
+  color: var(--joblu-primary-accent);
+  font-weight: 700;
+  font-family: var(--font-subtitle);
+  letter-spacing: 0.02em;
+}
+
+/* ==============================================
+   📐 TEMPLATES STATIC GRID (3 columnas fijas)
+   ============================================== */
+
+/* Header de la card: título + "Ver todas →" */
+.templates-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.templates-card-header h3 {
+  margin: 0;
+}
+
+.templates-card-ver-todas {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--joblu-primary-accent);
+  text-decoration: none;
+  font-family: var(--font-subtitle);
+  letter-spacing: 0.02em;
+  transition: opacity 0.15s ease;
+}
+
+.templates-card-ver-todas:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* Grilla 3 columnas iguales */
+.templates-static-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+}
+
+/* Botón de cada plantilla */
+.templates-static-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+  background: none;
+  border: 1.5px solid var(--joblu-border-soft);
+  border-radius: var(--joblu-radius-lg);
+  padding: 0.6rem 0.4rem 0.65rem;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+  text-align: center;
+  width: 100%;
+}
+
+.templates-static-item:hover {
+  border-color: var(--joblu-primary);
+  box-shadow: 0 4px 12px rgba(99, 55, 183, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Estado activo */
+.templates-static-item--active {
+  border-color: var(--joblu-primary-accent);
+  box-shadow: 0 0 0 2px rgba(33, 219, 210, 0.2);
+}
+
+/* Estado bloqueado */
+.templates-static-item.locked {
+  cursor: not-allowed;
+  opacity: 0.75;
+  background: #f8fafc;
+}
+
+.templates-static-item.locked:hover {
+  border-color: var(--joblu-border-soft);
+  box-shadow: none;
+  transform: none;
+}
+
+.locked-text {
+  color: var(--joblu-primary) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Miniatura — llena el ancho de la columna */
+.templates-static-thumb {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.templates-static-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+/* Nombre */
+.templates-static-name {
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--joblu-text-main);
+  line-height: 1.2;
+}
+
+/* Responsive: en mobile, cambia a scroll horizontal */
+@media (max-width: 520px) {
+  .templates-static-grid {
+    grid-template-columns: unset;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 0.6rem;
+    scrollbar-width: none;
+  }
+
+  .templates-static-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .templates-static-item {
+    flex: 0 0 72px;
+    scroll-snap-align: start;
+  }
+
+  .home-templates-grid {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .home-template-card {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  /* El header ahora sí se comporta como botón */
+  .home-template-mobile-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* El body/header visible compacto */
+  .home-template-mobile-summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding: 0.85rem 1rem 0.9rem;
+  }
+
+  .home-template-mobile-summary-text {
+    display: block;
+    min-width: 0;
+    flex: 1;
+  }
+
+  .home-template-mobile-summary-text h4 {
+    margin: 0;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--joblu-text-main);
+  }
+
+  .home-template-mobile-summary-text .home-template-category {
+    margin-top: 0.15rem;
+    font-size: 0.78rem;
+  }
+
+  .home-template-mobile-chevron {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 999px;
+    background: rgba(99, 55, 183, 0.08);
+    color: var(--joblu-primary);
+    font-size: 0.95rem;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: transform 0.25s ease, background-color 0.2s ease;
+  }
+
+  .home-template-mobile-chevron.is-rotated {
+    transform: rotate(180deg);
+  }
+
+  .home-template-card.is-open .home-template-mobile-chevron {
+    background: rgba(99, 55, 183, 0.14);
+  }
+
+  /* Thumb más compacta en mobile */
+  .home-template-card-thumb {
+    height: 72px;
+  }
+
+  .home-template-card-icon {
+    font-size: 2rem;
+  }
+
+  /* Colapsable con animación */
+  .home-template-collapsible {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.28s ease;
+  }
+
+  .home-template-collapsible.is-open {
+    grid-template-rows: 1fr;
+  }
+
+  .home-template-collapsible-inner {
+    display: block;
+    overflow: hidden;
+  }
+
+  /* Compactamos el contenido para mobile */
+  .home-template-card-body {
+    padding: 0 1rem 0.5rem;
+    gap: 0.4rem;
+  }
+
+  .home-template-description {
+    margin-top: 0;
+    font-size: 0.8rem;
+    line-height: 1.35;
+  }
+
+  .home-template-features {
+    margin-top: 0.35rem;
+    gap: 0.35rem;
+  }
+
+  .home-template-tag {
+    font-size: 0.66rem;
+    padding: 0.14rem 0.45rem;
+  }
+
+  .home-template-cta {
+    margin: 0.5rem 1rem 1rem;
+    width: calc(100% - 2rem);
+  }
+
+
+
+
+}

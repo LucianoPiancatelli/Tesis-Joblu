@@ -1,0 +1,617 @@
+/* frontend/src/styles/jobs.css */
+
+.jobs-page {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  animation: joblu-fade-in-up 0.35s ease;
+}
+
+.jobs-header {
+  margin-bottom: 1.5rem;
+}
+
+.jobs-header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 2rem;
+  padding-bottom: 1rem;
+}
+
+.jobs-header-tabs {
+  display: flex;
+  align-items: flex-end;
+}
+
+.jobs-tabs-mobile {
+  display: none;
+}
+
+
+
+.jobs-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.jobs-subtitle {
+  margin: 0.35rem 0 0;
+  color: var(--joblu-text-muted);
+  font-size: 0.95rem;
+}
+
+.jobs-layout {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.jobs-filters {
+  background: var(--joblu-surface);
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  box-shadow: var(--joblu-shadow-md);
+  padding: 1rem;
+  height: fit-content;
+}
+
+.jobs-list-area {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.jobs-list-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+
+/* Pestañas de filtrado */
+.jobs-tab {
+  border-radius: 12px;
+  /* Antes 999px */
+  padding: 0.5rem 1rem;
+  /* Un poco más de aire */
+  border: 2px solid var(--joblu-border-soft);
+  /* Borde unificado */
+  background: #f9fafb;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--joblu-text-main);
+  transition: all 0.2s ease;
+}
+
+.jobs-tab:hover:not(.jobs-tab-active) {
+  background: rgba(99, 102, 241, 0.05);
+  border-color: rgba(99, 102, 241, 0.3);
+  color: var(--joblu-primary);
+}
+
+.jobs-tab-active {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  border-color: var(--joblu-primary);
+}
+
+.jobs-tab:focus-visible {
+  outline: 2px solid var(--joblu-primary-accent);
+  outline-offset: 2px;
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.job-card {
+  background: var(--joblu-surface);
+  border-radius: var(--joblu-radius-lg);
+  border: 1px solid var(--joblu-border-soft);
+  box-shadow: var(--joblu-shadow-md);
+  padding: 1.25rem 1.5rem;
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  /* Sombra más premium */
+  border-color: var(--joblu-primary-accent);
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.job-card-header-main {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.job-card-title-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.job-card-title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--joblu-text-main);
+  line-height: 1.2;
+}
+
+.new-badge {
+  background: var(--joblu-primary-accent);
+  color: #080f23;
+  /* Dark text for contrast */
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+}
+
+.job-card-company {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--joblu-primary);
+  /* Use primary brand color */
+}
+
+.job-card-time {
+  font-size: 0.85rem;
+  color: var(--joblu-text-muted);
+  white-space: nowrap;
+  /* Evita que la fecha se rompa en dos líneas si es muy larga */
+  padding-top: 0.2rem;
+}
+
+/* LOGO DE LA EMPRESA */
+.job-card-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  /* Mantiene la proporción */
+  border-radius: 6px;
+  background: white;
+  /* Fondo blanco por si el logo tiene transparencia */
+  padding: 2px;
+  border: 1px solid var(--joblu-border-soft);
+  flex-shrink: 0;
+  /* Evita que el logo se aplaste */
+}
+
+.job-card-logo-placeholder {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+  border-radius: 6px;
+  font-size: 1.4rem;
+  color: var(--joblu-text-muted);
+  flex-shrink: 0;
+}
+
+.job-card-tags {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.job-tag-badge {
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+}
+
+.job-card-meta {
+  margin: 0 0 0.75rem;
+  font-size: 0.85rem;
+  color: var(--joblu-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.job-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.job-meta-divider {
+  color: #cbd5e1;
+}
+
+/* Icono inline SVG (react-icons) en la meta de la tarjeta */
+.meta-icon {
+  font-size: 0.85rem;
+  color: var(--joblu-primary);
+}
+
+.job-card-description {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+}
+
+.job-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.job-card-footer-left {
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+/* Botón "Ver detalle" o acciones secundarias */
+.job-card-secondary-btn,
+.job-card-detail-link,
+.job-detail-back,
+.chip {
+  border-radius: 12px !important;
+  /* Forzamos el 12px en lugar de 999px */
+  border: 2px solid var(--joblu-border-soft);
+  /* Grosor unificado */
+  padding: 0.4rem 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+/* Botón Principal de la tarjeta (Solicitar / Ver más) */
+.job-card-cta {
+  border-radius: 12px;
+  /* Antes 999px */
+  padding: 0.5rem 1.25rem;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--joblu-primary);
+  color: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.job-card-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 55, 183, 0.25);
+}
+
+.jobs-search-area {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.jobs-search-bar {
+  display: flex;
+  margin-top: 0.3rem;
+  max-width: 480px;
+  /* El buscador es un solo bloque visual */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--joblu-border-soft);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.jobs-search-bar:focus-within {
+  border-color: var(--joblu-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* Input de búsqueda (para que coincida con el botón cuadrado) */
+.jobs-search-input {
+  flex: 1;
+  border: none;
+  border-radius: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.95rem;
+  outline: none;
+  min-height: 48px;
+  background: #ffffff;
+  /* Explicit background for contrast */
+  color: var(--joblu-text-main);
+  /* Explicit text color */
+  caret-color: var(--joblu-primary);
+  /* Premium feel */
+}
+
+.jobs-search-input::placeholder {
+  color: #94a3b8;
+  /* Tailwind slate-400, visible but muted */
+  opacity: 1;
+  /* Override Firefox default opacity */
+}
+
+/* Botón de buscar */
+.jobs-search-button {
+  border: none;
+  border-radius: 0;
+  padding: 0 1rem;
+  min-height: 48px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  background: var(--joblu-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.jobs-search-button:hover {
+  background: var(--joblu-primary-accent);
+  color: #080f23;
+}
+
+.jobs-empty {
+  font-size: 0.9rem;
+  color: var(--joblu-text-muted);
+}
+
+/* Icono del estado vacío (react-icons SVG) */
+.jobs-empty-icon {
+  font-size: 3rem;
+  color: var(--joblu-text-muted);
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+/* PANEL DE FILTROS COMPACTO */
+.jobs-filter-section {
+  border-bottom: 1px solid var(--joblu-border-soft);
+  padding: 0.5rem 0 0.75rem 0;
+  /* Reducido de 0.4rem */
+}
+
+.jobs-filter-title {
+  cursor: pointer;
+  font-size: 0.8rem;
+  /* Pequeño para feel de label */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--joblu-primary);
+  margin-bottom: 0.5rem;
+  list-style-type: none;
+  /* Hide default arrow visually if wanted, or leave it */
+}
+
+.jobs-filter-title::-webkit-details-marker {
+  display: none;
+}
+
+.jobs-filter-content {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-left: 0.1rem;
+}
+
+.jobs-filter-content label {
+  font-size: 0.9rem;
+  display: flex;
+  align-items: flex-start;
+  /* Better for multiline wrapping */
+  gap: 0.5rem;
+  cursor: pointer;
+  color: var(--joblu-text-main);
+  transition: color 0.15s;
+}
+
+.jobs-filter-content label:hover {
+  color: var(--joblu-primary);
+}
+
+.jobs-checkbox-label input[type="checkbox"] {
+  accent-color: var(--joblu-primary);
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.1rem;
+  cursor: pointer;
+}
+
+/* CHIPS */
+.jobs-filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+}
+
+.chip {
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  border: 1px solid var(--joblu-border-soft);
+  background: #f9fafb;
+  color: var(--joblu-text-main);
+  cursor: pointer;
+  transition: 0.15s ease;
+}
+
+.chip:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  background: rgba(99, 102, 241, 0.05);
+  color: var(--joblu-primary);
+}
+
+.chip-active {
+  background: var(--joblu-primary) !important;
+  border-color: var(--joblu-primary) !important;
+  color: #fff !important;
+}
+
+.job-card-detail-link {
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0.28rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid var(--joblu-border-soft);
+  background: #f9fafb;
+  transition: 0.15s ease;
+}
+
+.job-card-detail-link:hover {
+  background: var(--joblu-primary);
+  border-color: var(--joblu-primary);
+  color: #fff;
+}
+
+.job-detail-back {
+  border: 1px solid var(--joblu-border-soft);
+  background: #f9fafb;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+  transition: 0.15s ease;
+}
+
+.job-detail-back:hover {
+  background: var(--joblu-primary);
+  border-color: var(--joblu-primary);
+  color: #fff;
+}
+
+/* =======================
+   Responsive Bolsa de trabajo
+   ======================= */
+@media (max-width: 768px) {
+  .jobs-page {
+    padding: 1rem;
+    margin: 1.5rem auto;
+    overflow-x: hidden;
+  }
+
+  .jobs-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Filtros arriba de los posteos */
+  .jobs-filters {
+    order: 1;
+  }
+
+  .jobs-list-area {
+    order: 2;
+  }
+
+  .jobs-search-bar {
+    width: 100%;
+  }
+
+  .jobs-search-input {
+    font-size: 0.85rem;
+  }
+
+  /* Tabs: se ocultan en el header y se muestran debajo de los filtros */
+  .jobs-header-tabs {
+    display: none;
+  }
+
+  .jobs-tabs-mobile {
+    display: flex;
+    margin-bottom: 0.5rem;
+  }
+
+  .jobs-tabs-mobile .jobs-list-tabs {
+    width: 100%;
+  }
+
+  .jobs-tabs-mobile .jobs-tab {
+    flex: 1;
+    text-align: center;
+  }
+
+  .jobs-tab {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.7rem;
+  }
+
+  .job-card {
+    padding: 0.9rem;
+  }
+
+  .job-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-card-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .job-card-footer-left {
+    order: 2;
+  }
+}
+
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+/* Botón para limpiar filtros - estilo secundario */
+.clear-filters-btn {
+  padding: 0.5rem 1.25rem;
+  border-radius: 12px;
+  border: 2px solid var(--joblu-primary);
+  background: #f5f3ff;
+  color: var(--joblu-primary);
+  font-family: var(--font-subtitle);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-filters-btn:hover {
+  background: var(--joblu-primary);
+  color: #ffffff;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(99, 55, 183, 0.25);
+}
