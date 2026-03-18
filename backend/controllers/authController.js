@@ -77,3 +77,41 @@ export const login = async (req, res) => {
         res.status(500).json({ error: "Error al iniciar sesión" });
     }
 };
+
+export const demoLogin = async (req, res) => {
+    try {
+        const demoEmail = "invitado@joblu.com";
+
+        let user = await User.findOne({ email: demoEmail });
+
+        if (!user) {
+            const hashedPassword = await bcrypt.hash("demo-joblu", 10);
+
+            user = new User({
+                name: "Invitado Joblu",
+                email: demoEmail,
+                password: hashedPassword
+            });
+
+            await user.save();
+        }
+
+        const token = jwt.sign(
+            { id: user._id, name: user.name, email: user.email },
+            process.env.JWT_SECRET,
+            { expiresIn: "7d" }
+        );
+
+        const userObj = user.toObject();
+        delete userObj.password;
+
+        res.json({
+            message: "Acceso demo iniciado",
+            token,
+            user: userObj
+        });
+    } catch (err) {
+        console.error("Error en demo login:", err);
+        res.status(500).json({ error: "Error al iniciar sesión en modo demo" });
+    }
+};

@@ -79,6 +79,30 @@ function Login({ onLogin }) {
       setIsLoading(false);
     }
   };
+
+  const handleDemoLogin = async () => {
+    setIsLoading(true);
+
+    try {
+      const response = await fetch(`${API_BASE_URL}/api/auth/demo-login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Ocurrió un error inesperado');
+      }
+
+      addToast('Ingresaste en modo invitado 👋', 'success');
+      onLogin(data.user, data.token, '/');
+    } catch (error) {
+      addToast(error.message, 'error');
+    } finally {
+      setIsLoading(false);
+    }
+  };
   // --- 4. Renderizado ---
   return (
     <div className="login-page">
@@ -158,6 +182,15 @@ function Login({ onLogin }) {
             }
           </button>
         </form>
+
+        <button
+          type="button"
+          className="login-demo-button"
+          onClick={handleDemoLogin}
+          disabled={isLoading}
+        >
+          Acceder como Invitado
+        </button>
 
         {/* Alternar entre Login y Registro */}
         <div className="login-footer">
