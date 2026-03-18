@@ -1,68 +1,130 @@
-Joblu 🚀
-Optimiza tu búsqueda laboral con Inteligencia Artificial
-Joblu es una plataforma integral diseñada para ayudar a los profesionales a potenciar su carrera. Combina herramientas de creación de CVs optimizados, un buscador de empleos avanzado y una comunidad colaborativa para compartir conocimientos.
+# Joblu 🚀 | AI-Powered CV Builder & Career Hub
 
-✨ Características Principales
-Constructor de CV Inteligente: Crea currículums profesionales utilizando plantillas optimizadas para sistemas ATS (Applicant Tracking Systems).
+**Joblu** es una plataforma integral (Full Stack) diseñada para optimizar la búsqueda laboral mediante Inteligencia Artificial. Permite a los usuarios crear currículums optimizados para sistemas ATS, gestionar vacantes y participar en una comunidad profesional.
 
-Buscador de Empleos: Accede a una base de datos actualizada de vacantes laborales filtradas según tu perfil.
+---
 
-Comunidad Joblu: Un espacio para que los usuarios interactúen, compartan consejos de entrevistas, recursos y experiencias sobre empresas.
+## 🛠️ Stack Tecnológico
 
-IA de Asistencia: Integración de servicios de inteligencia artificial para mejorar la redacción de perfiles y el análisis de vacantes.
+* **Frontend:** React (Vite) con arquitectura de componentes reutilizables y manejo de estado global.
+* **Backend:** Node.js y Express.js, implementando una API RESTful escalable.
+* **Base de Datos:** MongoDB con Mongoose para el modelado de datos.
+* **IA:** Integración con la API de OpenAI (GPT-4o-mini) para la optimización de secciones de CV y análisis de perfiles.
+* **Seguridad:** Autenticación robusta mediante JSON Web Tokens (JWT) y encriptación de contraseñas con bcryptjs.
+* **PDF:** Generación de documentos profesionales utilizando Puppeteer en el servidor.
 
-Gestión de Perfil: Panel de control personalizado para gestionar tus aplicaciones y documentos.
+---
 
-🛠️ Tecnologías Utilizadas
-El proyecto utiliza un stack moderno de desarrollo web (MERN):
+## ✨ Características Principales
 
-Frontend: React.js con Vite, React Router para la navegación y CSS3 para el diseño responsivo.
+* **Constructor de CV Inteligente:** Los usuarios pueden generar o mejorar sus experiencias y habilidades utilizando prompts de IA específicos para RRHH.
+* **Modo Demo para Reclutadores:** Acceso instantáneo con un solo clic desde la pantalla de login para explorar todas las funcionalidades sin necesidad de registro manual.
+* **Optimización ATS:** Plantillas diseñadas para ser legibles por los sistemas automáticos de filtrado de candidatos.
+* **Comunidad Colaborativa:** Sistema de foros para compartir consejos de entrevistas y experiencias en empresas.
+* **Buscador de Empleos:** Interfaz dinámica para filtrar y guardar vacantes de interés.
 
-Backend: Node.js y Express.js para la API RESTful.
+---
 
-Base de Datos: MongoDB (gestionada a través de Mongoose).
+## 🚀 Instalación y Uso Local
 
-Autenticación: JSON Web Tokens (JWT) para sesiones seguras.
+1. **Clonar repositorio:**
+   ```bash
+   git clone [https://github.com/lucianopiancatelli/tesis-joblu.git](https://github.com/lucianopiancatelli/tesis-joblu.git)
 
-Servicios Externos: Integración con servicios de IA y procesamiento de PDFs.
+   Configurar Backend:
 
-🚀 Instalación y Configuración
-Sigue estos pasos para ejecutar el proyecto localmente:
+Entrar en /backend, ejecutar npm install.
 
-Requisitos previos
-Node.js (v16 o superior)
+Crear un archivo .env con: MONGODB_URI, JWT_SECRET, OPENAI_API_KEY.
 
-MongoDB instalado o una URI de MongoDB Atlas
+Iniciar con npm run dev.
 
-1. Clonar el repositorio
-Bash
-git clone https://github.com/tu-usuario/tesis-joblu.git
-cd tesis-joblu
-2. Configuración del Backend
-Bash
-cd backend
-npm install
-Crea un archivo .env basado en .env.example.
+Configurar Frontend:
 
-Configura tu MONGODB_URI, JWT_SECRET y las claves de servicios de IA.
+Entrar en /frontend, ejecutar npm install.
 
-Inicia el servidor:
+Configurar API_BASE_URL en src/config/api.js.
 
-Bash
-npm run dev
-3. Configuración del Frontend
-Bash
-cd ../frontend
-npm install
-npm run dev
-La aplicación estará disponible en http://localhost:5173.
+Iniciar con npm run dev.
 
-📂 Estructura del Proyecto
-/backend: API, modelos de datos, controladores y servicios de lógica de negocio.
 
-/frontend: Interfaz de usuario, componentes de React y estilos.
 
-/frontend/src/pages: Vistas principales como Home, CV Builder, Jobs y Community.
 
-📄 Licencia
-Este proyecto fue desarrollado por Luciano Piancatelli como parte de su tesis profesional. Todos los derechos reservados.
+
+
+
+Gemini ha dicho
+Hola, Luciano. Entiendo perfectamente el desafío. Como desarrollador con años en la industria, te confirmo que la "fricción de registro" es el enemigo número uno de los portfolios. Un reclutador técnico dedica pocos minutos a cada perfil, y si tiene que crear una cuenta, probablemente cerrará la pestaña.
+
+Aquí tienes las dos herramientas que me pediste para profesionalizar tu proyecto Joblu y asegurar que nadie se pierda tu integración con OpenAI.
+
+1) Prompt para Cursor: Implementación del "Modo Demo"
+Copia y pega este prompt en el chat de Cursor (asegúrate de tener abiertos los archivos backend/controllers/authController.js, backend/routes/authRoutes.js, frontend/src/pages/Login.jsx y backend/server.js).
+
+Prompt:
+"Quiero implementar un 'Modo Demo' para que los reclutadores accedan a Joblu con un solo clic sin registrarse. Realiza los siguientes cambios:
+
+Backend (Controller): En authController.js, crea una función demoLogin. Esta debe buscar un usuario con el email 'invitado@joblu.com'. Si no existe, debe crearlo con datos de prueba básicos. Luego, debe generar y devolver un JWT de la misma forma que el login normal.
+
+Backend (Routes): En authRoutes.js, añade una ruta POST /demo-login que apunte a la función creada.
+
+Frontend (Login Page): En Login.jsx, añade un botón debajo del formulario que diga 'Acceder como Invitado'. Al hacer clic, debe realizar un fetch a la nueva ruta /api/auth/demo-login, recibir el token y el usuario, y ejecutar onLogin(data.user, data.token, '/') para redirigir al inicio.
+
+Estilos: Asegúrate de que el botón de invitado sea visualmente distinto (por ejemplo, con un borde o un color secundario) para que resalte como una opción de acceso rápido."
+
+2) README.md Profesional para GitHub
+Este README está diseñado para "vender" tu capacidad técnica, resaltando el uso del Stack MERN y la IA.
+
+Markdown
+# Joblu 🚀 | AI-Powered CV Builder & Career Hub
+
+**Joblu** es una plataforma integral (Full Stack) diseñada para optimizar la búsqueda laboral mediante Inteligencia Artificial. Permite a los usuarios crear currículums optimizados para sistemas ATS, gestionar vacantes y participar en una comunidad profesional.
+
+---
+
+## 🛠️ Stack Tecnológico
+
+* **Frontend:** React (Vite) con arquitectura de componentes reutilizables y manejo de estado global.
+* **Backend:** Node.js y Express.js, implementando una API RESTful escalable.
+* **Base de Datos:** MongoDB con Mongoose para el modelado de datos.
+* **IA:** Integración con la API de OpenAI (GPT-4o-mini) para la optimización de secciones de CV y análisis de perfiles.
+* **Seguridad:** Autenticación robusta mediante JSON Web Tokens (JWT) y encriptación de contraseñas con bcryptjs.
+* **PDF:** Generación de documentos profesionales utilizando Puppeteer en el servidor.
+
+---
+
+## ✨ Características Principales
+
+* **Constructor de CV Inteligente:** Los usuarios pueden generar o mejorar sus experiencias y habilidades utilizando prompts de IA específicos para RRHH.
+* **Modo Demo para Reclutadores:** Acceso instantáneo con un solo clic desde la pantalla de login para explorar todas las funcionalidades sin necesidad de registro manual.
+* **Optimización ATS:** Plantillas diseñadas para ser legibles por los sistemas automáticos de filtrado de candidatos.
+* **Comunidad Colaborativa:** Sistema de foros para compartir consejos de entrevistas y experiencias en empresas.
+* **Buscador de Empleos:** Interfaz dinámica para filtrar y guardar vacantes de interés.
+
+---
+
+## 🚀 Instalación y Uso Local
+
+1. **Clonar repositorio:**
+   ```bash
+   git clone [https://github.com/lucianopiancatelli/tesis-joblu.git](https://github.com/lucianopiancatelli/tesis-joblu.git)
+Configurar Backend:
+
+Entrar en /backend, ejecutar npm install.
+
+Crear un archivo .env con: MONGODB_URI, JWT_SECRET, OPENAI_API_KEY.
+
+Iniciar con npm run dev.
+
+Configurar Frontend:
+
+Entrar en /frontend, ejecutar npm install.
+
+Configurar API_BASE_URL en src/config/api.js.
+
+Iniciar con npm run dev.
+
+👨‍💻 Sobre el Proyecto
+Este proyecto es el resultado de mi tesis profesional como Diseñador y Desarrollador Web Full Stack. Representa un ecosistema completo que resuelve la desconexión entre el talento y las herramientas modernas de IA.
+
+Desarrollado por Luciano Piancatelli.
